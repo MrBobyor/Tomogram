@@ -1,0 +1,14 @@
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\Tomogram.exe
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\Tomogram.pdb
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\OpenTK.Compatibility.dll
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\OpenTK.dll
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\OpenTK.GLControl.dll
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\OpenTK.pdb
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\OpenTK.xml
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\bin\Debug\OpenTK.GLControl.xml
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\obj\x86\Debug\Tomogram.csprojResolveAssemblyReference.cache
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\obj\x86\Debug\Tomogram.Form1.resources
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\obj\x86\Debug\Tomogram.Properties.Resources.resources
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\obj\x86\Debug\Tomogram.csproj.GenerateResource.Cache
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\obj\x86\Debug\Tomogram.exe
+F:\Inf\sashka einstein\education\C#\lab.works\KG-2017\Tomogram\sln\Tomogram\Tomogram\obj\x86\Debug\Tomogram.pdb
