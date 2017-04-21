@@ -46,8 +46,11 @@ namespace Tomogram
         }
 
         public int clamp(int val, int min, int max)
-        { 
-            //здесь должен быть код
+        {
+            if (val < min)
+                return min;
+            if (val > max)
+                return max;
             return val; 
         }
 

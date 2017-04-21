@@ -18,7 +18,7 @@ namespace Tomogram
         Bin bin = new Bin();
         View view = new View();
         bool loaded = false;
-        int currentLayer = 0;
+        int currentLayer = 10;
 
         public Form1()
         {
