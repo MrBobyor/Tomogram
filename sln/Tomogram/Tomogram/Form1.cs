@@ -27,10 +27,10 @@ namespace Tomogram
             InitializeComponent();
         }
         
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Application.Idle += Application_Idle;
-        }
+        //private void Form1_Load(object sender, EventArgs e)
+        //{
+        //    Application.Idle += Application_Idle;
+        //}
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -57,17 +57,18 @@ namespace Tomogram
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             currentLayer = trackBar1.Value;
-            //glControl1.Invalidate();
+            displayFPS(); 
+            glControl1.Invalidate();
         }
 
-        void Application_Idle(object sender, EventArgs e)
-        {
-            while (glControl1.IsIdle)
-            {
-                displayFPS();
-                glControl1.Invalidate();
-            }
-        }
+        //void Application_Idle(object sender, EventArgs e)
+        //{
+        //    while (glControl1.IsIdle)
+        //    {
+        //        displayFPS();
+        //        glControl1.Invalidate();
+        //    }
+        //}
 
         void displayFPS()
         {

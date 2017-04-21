@@ -70,7 +70,7 @@
             this.glControl1.Size = new System.Drawing.Size(516, 330);
             this.glControl1.TabIndex = 1;
             this.glControl1.VSync = false;
-            this.glControl1.Load += new System.EventHandler(this.Application_Idle);
+            //this.glControl1.Load += new System.EventHandler(this.Application_Idle);
             this.glControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.glControl1_Paint);
             // 
             // trackBar1
