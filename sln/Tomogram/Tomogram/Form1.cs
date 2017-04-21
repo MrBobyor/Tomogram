@@ -20,6 +20,7 @@ namespace Tomogram
         bool loaded = false;
         int currentLayer = 0;
         int FrameCount = 0;
+        bool needReload = false;
         DateTime NextFPSUpdate = DateTime.Now.AddSeconds(1);
 
         public Form1()
@@ -49,8 +50,22 @@ namespace Tomogram
         {
             if(loaded)
             {
-                view.DrowQuads(currentLayer);
-                glControl1.SwapBuffers();
+                if (radioButton1.Checked)
+                {
+                    view.DrowQuads(currentLayer);
+                    glControl1.SwapBuffers();
+                }
+                else
+                {
+                    if (needReload)
+                    {
+                        view.generateTextureImage(currentLayer);
+                        view.Load2DTexture();
+                        needReload = false;
+                    }
+                    view.DrawTexture();
+                    glControl1.SwapBuffers();
+                }
             }
         }
 
@@ -59,6 +74,7 @@ namespace Tomogram
             currentLayer = trackBar1.Value;
             displayFPS(); 
             glControl1.Invalidate();
+            needReload = true;
         }
 
         //void Application_Idle(object sender, EventArgs e)
@@ -79,6 +95,18 @@ namespace Tomogram
                 FrameCount = 0;
             }
             FrameCount++;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+                radioButton1.Checked = false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+                radioButton2.Checked = false;
         }
     }
 }
