@@ -58,14 +58,14 @@ namespace Tomogram
             string str = Er.ToString();
         }
 
-        public void generateTextureImage(int layerNumber)
+        public void generateTextureImage(int layerNumber, int Min, int d)
         {
             textureImage = new Bitmap(Bin.X, Bin.Y);
             for(int i = 0; i < Bin.X; ++i)
                 for (int j = 0; j < Bin.Y; ++j)
                 {
                     int pixelNumber = i + j * Bin.X + layerNumber * Bin.Y * Bin.Y;
-                    textureImage.SetPixel(i, j, TransferFunction(Bin.array[pixelNumber]));
+                    textureImage.SetPixel(i, j, TransferFunction(Bin.array[pixelNumber], Min, d));
                 }
         }
 
@@ -87,15 +87,15 @@ namespace Tomogram
             return val; 
         }
 
-        protected Color TransferFunction(short value)
+        protected Color TransferFunction(short value, int Min, int d)
         {
-            int min = 0;
-            int max = 2000;
+            int min = Min;
+            int max = Min + d;
             int newVal = clamp((value - min) * 255 / (max - min), 0, 255);
             return Color.FromArgb(255, newVal, newVal, newVal);
         }
 
-        public void DrowQuads(int layerNamber)
+        public void DrowQuads(int layerNamber, int Min, int d)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             GL.Begin(BeginMode.Quads);
@@ -105,19 +105,19 @@ namespace Tomogram
                     short value;
 
                     value = Bin.array[x_coord + y_coord * Bin.X + layerNamber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, Min, d));
                     GL.Vertex2(x_coord, y_coord);
 
                     value = Bin.array[x_coord + (y_coord + 1) * Bin.X + layerNamber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, Min, d));
                     GL.Vertex2(x_coord, y_coord + 1);
 
                     value = Bin.array[x_coord + 1 + (y_coord + 1) * Bin.X + layerNamber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, Min, d));
                     GL.Vertex2(x_coord + 1, y_coord + 1);
 
                     value = Bin.array[x_coord + 1 + y_coord * Bin.X + layerNamber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, Min, d));
                     GL.Vertex2(x_coord + 1, y_coord);
                 }
             GL.End();

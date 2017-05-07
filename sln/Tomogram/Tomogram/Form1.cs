@@ -28,10 +28,6 @@ namespace Tomogram
             InitializeComponent();
         }
         
-        //private void Form1_Load(object sender, EventArgs e)
-        //{
-        //    Application.Idle += Application_Idle;
-        //}
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -52,14 +48,14 @@ namespace Tomogram
             {
                 if (radioButton1.Checked)
                 {
-                    view.DrowQuads(currentLayer);
+                    view.DrowQuads(currentLayer, trackBar2.Value, trackBar3.Value);
                     glControl1.SwapBuffers();
                 }
                 else
                 {
                     if (needReload)
                     {
-                        view.generateTextureImage(currentLayer);
+                        view.generateTextureImage(currentLayer, trackBar2.Value, trackBar3.Value);
                         view.Load2DTexture();
                         needReload = false;
                     }
@@ -72,19 +68,17 @@ namespace Tomogram
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             currentLayer = trackBar1.Value;
-            displayFPS(); 
-            glControl1.Invalidate();
             needReload = true;
         }
 
-        //void Application_Idle(object sender, EventArgs e)
-        //{
-        //    while (glControl1.IsIdle)
-        //    {
-        //        displayFPS();
-        //        glControl1.Invalidate();
-        //    }
-        //}
+        void Application_Idle(object sender, EventArgs e)
+        {
+            while (glControl1.IsIdle)
+               {
+                    displayFPS();
+                    glControl1.Invalidate();
+               }
+         }
 
         void displayFPS()
         {
@@ -97,16 +91,28 @@ namespace Tomogram
             FrameCount++;
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void trackBar_Scroll(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
-                radioButton1.Checked = false;
+            currentLayer = trackBar1.Value;
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            if (radioButton2.Checked)
-                radioButton2.Checked = false;
+            int Max = trackBar2.Value;
+            label5.Text = Convert.ToString(trackBar2.Value);
+            needReload = true;
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            int d = trackBar3.Value;
+            label6.Text = Convert.ToString(trackBar3.Value);
+            needReload = true;
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            Application.Idle += Application_Idle;
         }
     }
 }
